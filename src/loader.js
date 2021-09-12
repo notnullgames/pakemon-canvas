@@ -3,6 +3,8 @@
 
 import sceneIntro from './scenes/intro.js'
 
+const developing = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
+
 const canvas = document.getElementById('canvas')
 
 function getMousePos (canvas, evt) {
@@ -27,13 +29,17 @@ let pos = { x: 0, y: 0 }
 const frame = () => {
   currentScene.draw(ctx, canvas)
   ctx.fillStyle = '#fff'
-  ctx.fillText(`${pos.x.toFixed(2)}, ${pos.y.toFixed(2)}`, 0, 10)
-  window.requestAnimationFrame(frame)
+  if (developing) {
+    ctx.fillText(`${pos.x.toFixed(2)}, ${pos.y.toFixed(2)}`, 0, 10)
+    window.requestAnimationFrame(frame)
+  }
 }
 
 // show where mouse is, for easier pixel-herding
-canvas.addEventListener('mousemove', e => {
-  pos = getMousePos(canvas, e)
-})
+if (developing) {
+  canvas.addEventListener('mousemove', e => {
+    pos = getMousePos(canvas, e)
+  })
+}
 
 window.requestAnimationFrame(frame)
