@@ -22,8 +22,6 @@ const currentScene = sceneIntro
 const ctx = canvas.getContext('2d')
 ctx.font = '10px joystix'
 
-currentScene.setup(canvas)
-
 let pos = { x: 0, y: 0 }
 
 const frame = () => {
@@ -42,4 +40,7 @@ if (developing) {
   })
 }
 
-window.requestAnimationFrame(frame)
+currentScene.setup(canvas)
+  .then(() => {
+    window.requestAnimationFrame(frame)
+  })
