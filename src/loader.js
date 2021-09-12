@@ -31,8 +31,8 @@ const frame = () => {
   ctx.fillStyle = '#fff'
   if (developing) {
     ctx.fillText(`${pos.x.toFixed(2)}, ${pos.y.toFixed(2)}`, 0, 10)
-    window.requestAnimationFrame(frame)
   }
+  window.requestAnimationFrame(frame)
 }
 
 // show where mouse is, for easier pixel-herding
