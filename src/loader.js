@@ -28,6 +28,7 @@ const frame = () => {
   currentScene.draw(Date.now(), ctx)
   ctx.fillStyle = '#fff'
   if (developing) {
+    ctx.textAlign = 'left'
     ctx.fillText(`${pos.x.toFixed(2)},${pos.y.toFixed(2)}`, 0, 10)
   }
   window.requestAnimationFrame(frame)
