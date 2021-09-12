@@ -20,17 +20,17 @@ function getMousePos (canvas, evt) {
 
 const currentScene = sceneIntro
 const ctx = canvas.getContext('2d')
-ctx.font = '8px sans'
+ctx.font = '10px joystix'
 
 currentScene.setup(canvas)
 
 let pos = { x: 0, y: 0 }
 
 const frame = () => {
-  currentScene.draw(ctx, canvas)
+  currentScene.draw(Date.now(), ctx, canvas)
   ctx.fillStyle = '#fff'
   if (developing) {
-    ctx.fillText(`${pos.x.toFixed(2)}, ${pos.y.toFixed(2)}`, 0, 10)
+    ctx.fillText(`${pos.x.toFixed(2)},${pos.y.toFixed(2)}`, 0, 10)
   }
   window.requestAnimationFrame(frame)
 }
