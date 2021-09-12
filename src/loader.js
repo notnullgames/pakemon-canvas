@@ -25,7 +25,7 @@ ctx.font = '10px joystix'
 let pos = { x: 0, y: 0 }
 
 const frame = () => {
-  currentScene.draw(Date.now(), ctx, canvas)
+  currentScene.draw(Date.now(), ctx)
   ctx.fillStyle = '#fff'
   if (developing) {
     ctx.fillText(`${pos.x.toFixed(2)},${pos.y.toFixed(2)}`, 0, 10)

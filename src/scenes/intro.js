@@ -22,17 +22,17 @@ export default {
     startTime = 0
   },
 
-  draw (time, ctx, canvas) {
+  draw (time, ctx) {
     if (startTime === 0) {
       startTime = time
     }
     const currentTime = time - startTime
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
 
-    const cx = canvas.width - ((time / 2000) % images[0].width)
-    const bx = canvas.width - ((time / 1000) % images[1].width)
-    const ax = canvas.width - ((time / 100) % images[2].width)
+    const cx = ctx.canvas.width - ((time / 2000) % images[0].width)
+    const bx = ctx.canvas.width - ((time / 1000) % images[1].width)
+    const ax = ctx.canvas.width - ((time / 100) % images[2].width)
 
     ctx.drawImage(images[0], cx, 0)
     ctx.drawImage(images[0], cx - images[0].width, 0)
